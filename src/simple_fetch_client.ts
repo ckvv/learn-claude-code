@@ -1,6 +1,11 @@
 import { loadEnvFile } from "node:process";
+import { appendFile, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
 
 loadEnvFile(".env");
+const logFilePath = resolve(process.cwd(), "request.log");
+await writeFile(logFilePath, "");
+
 export type ChatRole = "system" | "user" | "assistant" | "tool";
 
 export interface ChatToolCall {
@@ -64,8 +69,9 @@ export class SimpleChatClient {
       );
     }
   }
-
   async createChatCompletion(payload: ChatCompletionRequest): Promise<ChatCompletionResponse> {
+    await SimpleChatClient.writeLog("🧑🧑🧑messages", payload.messages);
+
     const response = await fetch(`${this.baseUrl}/chat/completions`, {
       method: "POST",
       headers: {
@@ -76,9 +82,16 @@ export class SimpleChatClient {
     });
 
     const data = (await response.json()) as ChatCompletionResponse;
+    await SimpleChatClient.writeLog("🤖🤖🤖response", data.choices);
+
     if (!response.ok) {
       throw new Error(data.error?.message || `Request failed with ${response.status}`);
     }
     return data;
+  }
+
+  private static async writeLog(label: string, value: unknown): Promise<void> {
+    const entry = `${label}\n${JSON.stringify(value, null, 2)}\n`;
+    await appendFile(logFilePath, entry);
   }
 }
