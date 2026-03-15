@@ -1,6 +1,6 @@
 # Simple Fetch Client
 
-[src/simple_fetch_client.ts](/Users/chenkai/Desktop/learn-claude-code/src/simple_fetch_client.ts) 是仓库中供 TypeScript 示例复用的最小 OpenAI 兼容客户端。它没有引入 SDK，只封装了当前教程需要的最小请求能力。
+[src/simple_fetch_client.ts](src/simple_fetch_client.ts) 是仓库中供 TypeScript 示例复用的最小 OpenAI 兼容客户端。它没有引入 SDK，只封装了当前教程需要的最小请求能力。
 
 ## 这个工具做什么
 

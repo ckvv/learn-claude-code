@@ -5,19 +5,19 @@
 
 | 章节                      | 文件                                                                                                              |
 | -------------------------| ----------------------------------------------------------------------------------------------------------------- |
-| 最小 Agent Loop           | [src/s01_agent_loop.ts](/Users/chenkai/Desktop/learn-claude-code/src/s01_agent_loop.ts)                           |
-| 工具调用与分发              | [src/s02_tool_use.ts](/Users/chenkai/Desktop/learn-claude-code/src/s02_tool_use.ts)                               |
-| Todo 管理                 | [src/s03_todo_write.ts](/Users/chenkai/Desktop/learn-claude-code/src/s03_todo_write.ts)                           |
-| Subagent                  | [src/s04_subagent.ts](/Users/chenkai/Desktop/learn-claude-code/src/s04_subagent.ts)                               |
-| Skill Loading             | [src/s05_skill_loading.ts](/Users/chenkai/Desktop/learn-claude-code/src/s05_skill_loading.ts)                     |
-| Context Compact           | [src/s06_context_compact.ts](/Users/chenkai/Desktop/learn-claude-code/src/s06_context_compact.ts)                 |
-| Task System               | [src/s07_task_system.ts](/Users/chenkai/Desktop/learn-claude-code/src/s07_task_system.ts)                         |
-| Background Tasks          | [src/s08_background_tasks.ts](/Users/chenkai/Desktop/learn-claude-code/src/s08_background_tasks.ts)               |
-| Agent Teams               | [src/s09_agent_teams.ts](/Users/chenkai/Desktop/learn-claude-code/src/s09_agent_teams.ts)                         |
-| Team Protocols            | [src/s10_team_protocols.ts](/Users/chenkai/Desktop/learn-claude-code/src/s10_team_protocols.ts)                   |
-| Autonomous Agents         | [src/s11_autonomous_agents.ts](/Users/chenkai/Desktop/learn-claude-code/src/s11_autonomous_agents.ts)             |
-| Worktree + Task Isolation | [src/s12_worktree_task_isolation.ts](/Users/chenkai/Desktop/learn-claude-code/src/s12_worktree_task_isolation.ts) |
-| Full Reference Agent      | [src/s_full.ts](/Users/chenkai/Desktop/learn-claude-code/src/s_full.ts)    
+| 最小 Agent Loop           | [src/s01_agent_loop.ts](src/s01_agent_loop.ts)                           |
+| 工具调用与分发              | [src/s02_tool_use.ts](src/s02_tool_use.ts)                               |
+| Todo 管理                 | [src/s03_todo_write.ts](src/s03_todo_write.ts)                           |
+| Subagent                  | [src/s04_subagent.ts](src/s04_subagent.ts)                               |
+| Skill Loading             | [src/s05_skill_loading.ts](src/s05_skill_loading.ts)                     |
+| Context Compact           | [src/s06_context_compact.ts](src/s06_context_compact.ts)                 |
+| Task System               | [src/s07_task_system.ts](src/s07_task_system.ts)                         |
+| Background Tasks          | [src/s08_background_tasks.ts](src/s08_background_tasks.ts)               |
+| Agent Teams               | [src/s09_agent_teams.ts](src/s09_agent_teams.ts)                         |
+| Team Protocols            | [src/s10_team_protocols.ts](src/s10_team_protocols.ts)                   |
+| Autonomous Agents         | [src/s11_autonomous_agents.ts](src/s11_autonomous_agents.ts)             |
+| Worktree + Task Isolation | [src/s12_worktree_task_isolation.ts](src/s12_worktree_task_isolation.ts) |
+| Full Reference Agent      | [src/s_full.ts](src/s_full.ts)    
 
 ## 这个仓库适合谁
 
@@ -65,7 +65,7 @@ export MODEL_ID=gpt-4o-mini
 pnpm 1
 ```
 
-这会执行最小 agent loop 示例：[src/s01_agent_loop.ts](/Users/chenkai/Desktop/learn-claude-code/src/s01_agent_loop.ts)
+这会执行最小 agent loop 示例：[src/s01_agent_loop.ts](src/s01_agent_loop.ts)
 
 ### 做一次完整检查
 
@@ -93,7 +93,7 @@ pnpm check
 相对 Python 原版，TypeScript 侧做了这些明确约束：
 
 - 使用 OpenAI 兼容的 `fetch` 客户端，而不是 Anthropic SDK
-- 只保留少量已经抽出的公共能力，例如 [src/simple_fetch_client.ts](/Users/chenkai/Desktop/learn-claude-code/src/simple_fetch_client.ts)
+- 只保留少量已经抽出的公共能力，例如 [src/simple_fetch_client.ts](src/simple_fetch_client.ts)
 - 优先保持章节单文件、自包含的教学风格
 
 这意味着代码更偏“教程式可读性”，而不是“工程化封装优先”。
@@ -103,9 +103,9 @@ pnpm check
 - 这些 TypeScript 示例直接使用 Node 原生 `.ts` 支持运行，避免使用需要额外转译的语法
 - 尽量保持和 Python 原章节结构一致，方便逐章对照
 - 非必要不抽离公共方法
-- 当公共 TypeScript 工具的行为发生变化时，同步更新 [docs/](/Users/chenkai/Desktop/learn-claude-code/docs)
+- 当公共 TypeScript 工具的行为发生变化时，同步更新 [docs/](docs)
 
 ## 相关文档
 
-- [docs/typescript_examples.md](/Users/chenkai/Desktop/learn-claude-code/docs/typescript_examples.md)
-- [docs/simple_fetch_client.md](/Users/chenkai/Desktop/learn-claude-code/docs/simple_fetch_client.md)
+- [docs/typescript_examples.md](docs/typescript_examples.md)
+- [docs/simple_fetch_client.md](docs/simple_fetch_client.md)
