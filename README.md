@@ -98,6 +98,12 @@ pnpm check
 
 这意味着代码更偏“教程式可读性”，而不是“工程化封装优先”。
 
+## 日志说明
+
+`[src/simple_fetch_client.ts](src/simple_fetch_client.ts)` 会将请求消息和响应内容写入仓库根目录的 `request.log`，便于调试接口交互。
+
+每次 Node 进程启动并加载该模块时，`request.log` 都会先被清空，然后在后续请求中持续追加新的日志内容。
+
 ## 开发约束
 
 - 这些 TypeScript 示例直接使用 Node 原生 `.ts` 支持运行，避免使用需要额外转译的语法

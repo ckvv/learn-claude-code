@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 
 loadEnvFile(".env");
 const logFilePath = resolve(process.cwd(), "request.log");
+let logSequence = 0;
 await writeFile(logFilePath, "");
 
 export type ChatRole = "system" | "user" | "assistant" | "tool";
@@ -70,7 +71,8 @@ export class SimpleChatClient {
     }
   }
   async createChatCompletion(payload: ChatCompletionRequest): Promise<ChatCompletionResponse> {
-    await SimpleChatClient.writeLog("🧑🧑🧑messages", payload.messages);
+    const logPrefix = `req-${++logSequence}`;
+    await SimpleChatClient.writeLog(`🧑🧑🧑---${logPrefix}`, payload.messages);
 
     const response = await fetch(`${this.baseUrl}/chat/completions`, {
       method: "POST",
@@ -82,7 +84,7 @@ export class SimpleChatClient {
     });
 
     const data = (await response.json()) as ChatCompletionResponse;
-    await SimpleChatClient.writeLog("🤖🤖🤖response", data.choices);
+    await SimpleChatClient.writeLog(`🤖🤖🤖---${logPrefix}`, data.choices);
 
     if (!response.ok) {
       throw new Error(data.error?.message || `Request failed with ${response.status}`);
