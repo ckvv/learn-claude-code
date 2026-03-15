@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "scripts": {
+    "check": "vp check --fix",
+    "1": "node ./src/s01_agent_loop.ts",
+    "2": "node ./src/s02_tool_use.ts",
+    "3": "node ./src/s03_todo_write.ts",
+    "4": "node ./src/s04_subagent.ts",
+    "5": "node ./src/s05_skill_loading.ts",
+    "6": "node ./src/s06_context_compact.ts",
+    "7": "node ./src/s07_task_system.ts",
+    "8": "node ./src/s08_background_tasks.ts",
+    "9": "node ./src/s09_agent_teams.ts",
+    "10": "node ./src/s10_team_protocols.ts",
+    "11": "node ./src/s11_autonomous_agents.ts",
+    "12": "node ./src/s12_worktree_task_isolation.ts",
+    "full": "node ./src/s_full.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "24",
+    "typescript": "^5.9.3",
+    "vite-plus": "^0.1.11"
+  },
+  "packageManager": "pnpm@10.32.1"
+}
