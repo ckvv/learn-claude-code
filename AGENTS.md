@@ -9,12 +9,17 @@
 
 This repository mirrors AI agent patterns in two tracks:
 
-- `agents/`: Python tutorial reference files, from `s01_agent_loop.py` through `s12_worktree_task_isolation.py`, plus `s_full.py`.
+- `learn-claude-code/`: upstream Python tutorial repository, tracked as a git submodule.
+- `learn-claude-code/agents/`: Python tutorial reference files, from `s01_agent_loop.py` through `s12_worktree_task_isolation.py`, plus `s_full.py`.
 - `src/`: TypeScript ports and shared utilities, currently including `s01_agent_loop.ts`, `s02_tool_use.ts`, and `simple_fetch_client.ts`.
 - `docs/`: Documentation for public TypeScript utilities. Update this when behavior or usage changes.
-- Root config files: `package.json`, `tsconfig.json`, `vite.config.ts`, and local environment settings in `.env`.
+- Root config files: `package.json`, `tsconfig.json`, `vite.config.ts`, `.gitmodules`, and local environment settings in `.env`.
 
-Keep new TypeScript examples in `src/` and match the Python chapter naming where possible, for example `s02_tool_use.ts`.
+Keep new TypeScript examples in `src/` and match the Python chapter naming from `learn-claude-code/agents/` where possible, for example `s02_tool_use.ts`.
+
+After cloning, initialize the submodule before relying on the Python reference sources:
+
+- `git submodule update --init --recursive`
 
 ## Build, Test, and Development Commands
 
@@ -29,7 +34,7 @@ Python examples are reference code only at the moment; there is no repo-managed 
 
 ## Coding Style & Naming Conventions
 
-Use TypeScript with strict typing and ES module imports. The existing codebase uses double quotes, semicolons, `const` by default, and descriptive camelCase names for variables and functions. Keep chapter files prefixed with `sNN_` to preserve parity with `agents/`.
+Use TypeScript with strict typing and ES module imports. The existing codebase uses double quotes, semicolons, `const` by default, and descriptive camelCase names for variables and functions. Keep chapter files prefixed with `sNN_` to preserve parity with `learn-claude-code/agents/`.
 
 These examples are executed directly with Node's native `.ts` support (`node --env-file=.env ...`), so avoid TypeScript syntax that requires transpilation. In particular, do not use parameter properties like `constructor(private readonly root: string)` because Node strip-only mode does not support them.
 

@@ -1,6 +1,6 @@
 # learn-claude-code
 
-一个用来拆解 AI Coding Agent 核心模式的学习仓库。它保留了原始 Python 教学示例，并提供逐章对应的 TypeScript 版本，方便对照理解 agent 如何从最小 loop 演化到工具调用、任务系统、多 agent 协作和 worktree 隔离。
+一个用来拆解 AI Coding Agent 核心模式的学习仓库。仓库现在采用 `git submodule` 结构：上游 Python 教学示例放在 `learn-claude-code/` 子模块中，根目录提供逐章对应的 TypeScript 版本，方便对照理解 agent 如何从最小 loop 演化到工具调用、任务系统、多 agent 协作和 worktree 隔离。
 
 
 | 章节                      | 文件                                                                                                              |
@@ -27,13 +27,24 @@
 
 ## 你能在这里看到什么
 
-- `agents/`：按章节拆分的 Python 教学代码
+- `learn-claude-code/`：上游 Python 教学仓库，以 git submodule 方式引入
+- `learn-claude-code/agents/`：按章节拆分的 Python 教学代码
 - `src/`：与 Python 章节一一对应的 TypeScript 可运行实现
 - `docs/`：公共 TypeScript 工具和实现说明
 
 核心目标不是封装成库，而是尽量保持每章自包含、可直接运行、方便阅读。
 
 ## 上手指南
+
+### 初始化子模块
+
+首次 clone 后先拉取子模块内容：
+
+```bash
+git submodule update --init --recursive
+```
+
+如果你是重新拉取了最新主仓库提交，也建议执行一次相同命令，确保 `learn-claude-code/` 同步到主仓库记录的版本。
 
 ### 安装依赖
 
@@ -79,10 +90,14 @@ pnpm check
 
 ```text
 .
-├── agents/                         # Python 教学示例
+├── learn-claude-code/              # 上游 Python 教学仓库（git submodule）
+│   ├── agents/                     # Python 教学示例
+│   ├── docs/
+│   └── skills/
 ├── src/                            # TypeScript 对照实现
 ├── docs/                           # 公共工具与实现说明
 ├── README.md
+├── .gitmodules
 ├── package.json
 ├── tsconfig.json
 └── vite.config.ts
@@ -107,7 +122,7 @@ pnpm check
 ## 开发约束
 
 - 这些 TypeScript 示例直接使用 Node 原生 `.ts` 支持运行，避免使用需要额外转译的语法
-- 尽量保持和 Python 原章节结构一致，方便逐章对照
+- 尽量保持和 `learn-claude-code/agents/` 中的 Python 原章节结构一致，方便逐章对照
 - 非必要不抽离公共方法
 - 当公共 TypeScript 工具的行为发生变化时，同步更新 [docs/](docs)
 
